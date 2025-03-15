@@ -50,5 +50,9 @@
     "IDF_CCACHE_ENABLE": "1",
     "ESP_ROM_ELF_DIR": "c:\\ESP-IDF\\Tools\\tools\\esp-rom-elfs\\20240305/"
   },
-  "idf.gitPathWin": "c:\\ESP-IDF\\Tools\\tools\\idf-git\\2.39.2\\cmd\\git.exe"
+  "idf.gitPathWin": "c:\\ESP-IDF\\Tools\\tools\\idf-git\\2.39.2\\cmd\\git.exe",
+  "idf.pythonInstallPath": "/usr/bin/python3",
+  "idf.espIdfPath": "/home/aaa147147/ESP-IDF/master/esp-idf",
+  "idf.toolsPath": "/home/aaa147147/ESP-IDF-Tool",
+  "idf.port": "/dev/ttyACM0"
 }
