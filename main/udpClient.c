@@ -314,7 +314,7 @@ static void udp_client_init(void *aContext)
     sockaddr.mPort = UDP_PORT;
     
     // 绑定UDP套接字到指定端口
-    error = otUdpBind(instance, &mysocket, &sockaddr, OT_NETIF_THREAD);
+    error = otUdpBind(instance, &mysocket, &sockaddr, OT_NETIF_THREAD_HOST);
     if (error != OT_ERROR_NONE) {
         // 如果绑定UDP套接字失败，记录错误并关闭UDP套接字
         ESP_LOGE("udp_client", "Failed to bind UDP socket: %s", otThreadErrorToString(error));
