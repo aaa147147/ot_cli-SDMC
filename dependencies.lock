@@ -42,7 +42,7 @@ dependencies:
     - name: espressif/led_strip
       version: ^2.4.1
     source:
-      path: /home/aaa147147/ESP-IDF/v5.4/esp-idf/examples/openthread/ot_common_components/ot_led
+      path: /home/aaa147147/ESP-IDF/master/esp-idf/examples/openthread/ot_common_components/ot_led
       type: local
     version: '*'
 direct_dependencies:
