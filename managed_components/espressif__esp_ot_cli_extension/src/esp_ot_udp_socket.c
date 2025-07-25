@@ -276,8 +276,6 @@ static void udp_client_receive_task(void *pvParameters)
         socklen_t socklen = sizeof(source_addr);
         len = recvfrom(udp_client_member->sock, rx_buffer, sizeof(rx_buffer) - 1, 0, (struct sockaddr *)&source_addr,
                        &socklen);
-
-
         if (len < 0) {
             ESP_LOGW(OT_EXT_CLI_TAG, "UDP client fail when receiving message");
         }
@@ -342,14 +340,11 @@ static void udp_socket_client_task(void *pvParameters)
     err_flag = 1;
 
     if (udp_client_member->local_port != -1) {
-        //inet6_aton(udp_client_member->local_ipaddr, &bind_addr.sin6_addr);
-        //inet6_ntoa_r((&bind_addr)->sin6_addr, udp_client_member->local_ipaddr,
-        //             sizeof(udp_client_member->local_ipaddr) - 1);
-
-        bind_addr.sin6_addr = in6addr_any;             
+        inet6_aton(udp_client_member->local_ipaddr, &bind_addr.sin6_addr);
+        inet6_ntoa_r((&bind_addr)->sin6_addr, udp_client_member->local_ipaddr,
+                     sizeof(udp_client_member->local_ipaddr) - 1);
         bind_addr.sin6_family = AF_INET6;
         bind_addr.sin6_port = htons(udp_client_member->local_port);
-        
 
         err = bind(sock, (struct sockaddr *)&bind_addr, sizeof(bind_addr));
         ESP_GOTO_ON_FALSE((err == 0), ESP_FAIL, exit, OT_EXT_CLI_TAG, "Socket unable to bind: errno %d", errno);
